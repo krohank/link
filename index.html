@@ -50,11 +50,13 @@
     <h1>Go Out with Me?</h1>
 
     <div class="buttons">
-        <button id="yes-btn" onclick="goToYesPage()">Yes</button>
+        <button id="yes-btn" onclick="handleYesClick()">Yes</button>
         <button id="no-btn" onmouseover="moveButton()">No</button>
     </div>
 
     <script>
+        let yesCount = 0;
+
         function moveButton() {
             const noBtn = document.getElementById('no-btn');
             const x = Math.random() * (window.innerWidth - noBtn.clientWidth);
@@ -63,7 +65,10 @@
             noBtn.style.top = y + 'px';
         }
 
-        function goToYesPage() {
+        function handleYesClick() {
+            yesCount++;
+            alert("Yes clicked! Total clicks: " + yesCount);
+            // You can also send this count to your server if needed.
             window.location.href = "yes.html";
         }
     </script>
